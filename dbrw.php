@@ -67,21 +67,21 @@
 		$form_sort_by = strtolower(trim($_GET['sortby'])); //the user select a new sort order
 
 		//save the sort order into ap_form_sorts table
-		$query = "delete from ".MF_TABLE_PREFIX."form_sorts where user_id=?";
-		$params = array($_SESSION['mf_user_id']);
+		$query = "delete from "._TABLE_PREFIX."form_sorts where user_id=?";
+		$params = array($_SESSION['_user_id']);
 		mf_do_query($query,$params,$dbh);
 
-		$query = "insert into ".MF_TABLE_PREFIX."form_sorts(user_id,sort_by) values(?,?)";
-		$params = array($_SESSION['mf_user_id'],$form_sort_by);
+		$query = "insert into "._TABLE_PREFIX."form_sorts(user_id,sort_by) values(?,?)";
+		$params = array($_SESSION['_user_id'],$form_sort_by);
 		mf_do_query($query,$params,$dbh);
 
 	}else{ //load the previous saved sort order
 
-		$query = "select sort_by from ".MF_TABLE_PREFIX."form_sorts where user_id=?";
-		$params = array($_SESSION['mf_user_id']);
+		$query = "select sort_by from "._TABLE_PREFIX."form_sorts where user_id=?";
+		$params = array($_SESSION['_user_id']);
 
     /******
-    "UPDATE ".MF_TABLE_PREFIX."users SET user_password = ? WHERE user_id = ?";
+    "UPDATE "._TABLE_PREFIX."users SET user_password = ? WHERE user_id = ?";
 	*/
 
     /***

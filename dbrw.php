@@ -1,11 +1,7 @@
-<html>
-<head>
-    <meta charset='UTF-8'>
-    <title>测试</title>
-</head>
-<body>
 <?php
     // NOTICE: This file contains debug code. Please comment it before formal release for security reasons.
+    // IMPORTANT: This project is trashed and the new project will not be uploaded due to security concerns. (It is already in use.)
+    // Code are suitable for PHP 7 which uses PDO Library.
 
     ini_set("display_errors", "On"); //debug
 
@@ -62,47 +58,3 @@
     echo '</table>';
 
     $dbh = null;
-
-    /*if(!empty($_GET['sortby'])){
-		$form_sort_by = strtolower(trim($_GET['sortby'])); //the user select a new sort order
-
-		//save the sort order into ap_form_sorts table
-		$query = "delete from "._TABLE_PREFIX."form_sorts where user_id=?";
-		$params = array($_SESSION['_user_id']);
-		mf_do_query($query,$params,$dbh);
-
-		$query = "insert into "._TABLE_PREFIX."form_sorts(user_id,sort_by) values(?,?)";
-		$params = array($_SESSION['_user_id'],$form_sort_by);
-		mf_do_query($query,$params,$dbh);
-
-	}else{ //load the previous saved sort order
-
-		$query = "select sort_by from "._TABLE_PREFIX."form_sorts where user_id=?";
-		$params = array($_SESSION['_user_id']);
-
-    /******
-    "UPDATE "._TABLE_PREFIX."users SET user_password = ? WHERE user_id = ?";
-	*/
-
-    /***
-     * 抢课解决方案: (SQL)
-    start transaction ;//开始事务
-    SELECT apply_count into p_apply_count FROM max_table WHERE store_id=p_store_id   for update;
-    if (p_apply_count =0 ) THEN
-    insert into max_table(store_id,apply_count) values(p_store_id,0);
-    end if;
-    IF( p_apply_count<=9) THEN
-
-    set encode_apply_code='生成规则',
-    insert into apply_form(apply_code,store_id,phone_number) values(encode_apply_code,p_store_id,p_phone_number);
-    update max_table set apply_count=apply_count+1 where store_id=p_store_id;
-    set result=encode_apply_code2;
-    END IF;
-
-    set return_val=result ;
-    commit; //提交事务，同时释放for update锁
-     */
-
-?>
-</body>
-</html>
